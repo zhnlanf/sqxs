@@ -53,21 +53,10 @@ boxjs：https://raw.githubusercontent.com/xiaokxiansheng/js/master/Task/cxk10.bo
 
  */
 
-const jobname = '书旗小说';
-const $ = Env(jobname);
+const jobname = '书旗小说'
+    const $ = Env(jobname)
 
-/*ck解密*/
-let fs = require('fs');
-const crypto = require('crypto');
-
-function aesDecrypt(encrypted, key) {
-    const decipher = crypto.createDecipher('aes192', key);
-    let decrypted = decipher.update(encrypted, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
-    return decrypted;
-}
-
-let ReadTimes = 0;
+    let ReadTimes = 0;
 let vediogold = 0;
 let drawgold = 0;
 
@@ -85,18 +74,10 @@ async function all() {
     //nodejs运行
     if ($.isNode()) {
 
-        let encrypted = fs.readFileSync('./sqxsck.txt', 'utf8');
-        key = process.env.ENCRYPT_KEY;
-        let decrypted = await aesDecrypt(encrypted, key);
-        sqxsck = JSON.parse(decrypted);
-        //let sqxsck = require('./sqxsck.json');
-        let CountNumber = 1;
+        let sqxsck = require('./sqxsck1.json');
+        let CountNumber = sqxsck.settings[1].val;
         $.log(`============ 共 ${CountNumber} 个${jobname}账号=============`);
-       // for (let i = 0; i < CountNumber; i++) {
-		   
-		   
-		   let i=(new Date).getHours()-1;
-		   
+        for (let i = 0; i < CountNumber; i++) {
             if (sqxsck.datas[0 + 6 * i].val) {
                 readckArr = sqxsck.datas[0 + 6 * i].val.split('&&');
                 receivecoinckArr = sqxsck.datas[1 + 6 * i].val.split('&&');
@@ -118,15 +99,15 @@ async function all() {
                 await receivecoin();
 
                 //看视频奖励金币
-                await vediogoldprize(0);
+                //await vediogoldprize(0);
 
                 //看视频奖励抽奖次数
                 //await vediodrawprize(0);
-                //await draw(0);
+				//await draw(0);
                 //个人信息
                 await userinfo();
             }
-       // }
+        }
 
     }
     //QX运行
@@ -143,7 +124,7 @@ async function all() {
                 receivecoinckArr = $.getdata(`receivecoinck${i}`).split('&&');
                 vediogoldprizeckArr = $.getdata(`vediogoldprizeck${i}`).split('&&');
                 //vediodrawprizeckArr = $.getdata(`vediodrawprizeck${i}`).split('&&');
-                // drawckArr = $.getdata(`drawck${i}`).split('&&');
+               // drawckArr = $.getdata(`drawck${i}`).split('&&');
                 userinfock = $.getdata(`userinfock${i}`);
                 $.log('\n============ 【书旗小说' + i + '】=============');
                 ReadTimes = 0;
@@ -161,7 +142,7 @@ async function all() {
 
                 //抽奖奖励金币
                 //await vediodrawprize(0);
-                //await draw(0);
+				//await draw(0);
                 //个人信息
                 await userinfo();
             }
@@ -351,7 +332,7 @@ function draw(k) {
                     const result = JSON.parse(data)
                         //$.log(data);
                         if (result.status == 200) {
-                            k++;
+							k++;
                             $.log("【抽奖任务】抽奖成功，获得" + result.data.prizeList[0].prizeName);
                             drawgold += parseInt(result.data.prizeList[0].prizeName);
                             await $.wait(5000);
