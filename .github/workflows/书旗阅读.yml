@@ -1,4 +1,4 @@
-name: 书旗
+name: 书旗阅读
 on:
   workflow_dispatch:
   schedule:
