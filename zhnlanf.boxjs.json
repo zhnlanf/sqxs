@@ -1,52 +1,10 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@zhnlanf 
-age174
-/
--
-16
-11467
-Code
-Issues
-4
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
--/feizao.box.json
-@age174
-age174 Update feizao.box.json
-Latest commit cbfdd53 4 days ago
- History
- 2 contributors
-1311 lines (1311 sloc)  56.5 KB
-  
 {
             "id": "age174.app.sub",
             "name": "肥皂 应用订阅",
             "author": "@feizao",
             "icon": "https://s3.ax1x.com/2021/02/17/ygLAIA.jpg",
             "repo": "https://github.com/age174/-",
-            "apps": [{
-            "id": "dkd",
-            "name": "多看点",
-            "keys": ["dkdurl", "dkdhd", "dkdbody", "dkdtxurl", "dkdtxhd", "dkdtxbody"],
-            "author": "@feizao",
-            "settings": [{
-            "id": "dkdsetting",
-            "name": "当前账号",
-            "val": "1",
-            "type": "number",
-            "desc": "当前账号对应"
-    },
+            "apps": [
     {
             "id": "dwyjy",
             "name": "超市小达人",
@@ -72,16 +30,3 @@ Latest commit cbfdd53 4 days ago
     } 
 ]
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
